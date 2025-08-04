@@ -4,7 +4,7 @@
     "details": [
       {
         "appIDs": [
-          "R2HKW65UJ6.com.example.flutterNavigationSample"
+          "53JCNQHG7Q.com.example.flutterNavigationSample"
         ],
         "paths": [
           "*"
@@ -19,7 +19,7 @@
   },
   "webcredentials": {
     "apps": [
-      "R2HKW65UJ6.com.example.flutterNavigationSample"
+      "53JCNQHG7Q.com.example.flutterNavigationSample"
     ]
   }
 }
