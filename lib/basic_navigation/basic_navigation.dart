@@ -12,43 +12,43 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomeScreen(),
+      home: ScreenA(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class ScreenA extends StatelessWidget {
+  const ScreenA({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home')),
+      appBar: AppBar(title: const Text('Screen A')),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ScreenB()));
           },
-          child: const Text('Go to Second Screen'),
+          child: const Text('Go to Second B'),
         ),
       ),
     );
   }
 }
 
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
+class ScreenB extends StatelessWidget {
+  const ScreenB({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Second Screen')),
+      appBar: AppBar(title: const Text('Second B')),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          child: const Text('Go back to Home Screen'),
+          child: const Text('Go back to Screen A'),
         ),
       ),
     );
