@@ -40,9 +40,28 @@ final GoRouter appRouter = GoRouter(
     GoRoute(
       path: '/e',
       builder: (BuildContext context, GoRouterState state) {
-        final user = state.extra as User;
+        final userMap = state.extra as Map<String, dynamic>?;
+
+        final user = userMap != null ?  User.fromJson(userMap) : null;
+
         return ScreenE(user: user);
       },
     ),
   ],
+  redirect: (context, state) {
+    // final isLoggedIn = AuthService.instance.isLoggedIn;
+    // final isGoingToLogin = state.matchedLocation == '/login';
+    
+    // // Redirect to login if not authenticated
+    // if (!isLoggedIn && !isGoingToLogin) {
+    //   return '/login';
+    // }
+    
+    // // Redirect to home if already logged in and going to login
+    // if (isLoggedIn && isGoingToLogin) {
+    //   return '/';
+    // }
+    
+    return null; // No redirect needed
+  },
 );

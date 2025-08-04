@@ -44,7 +44,7 @@ class ScreenB extends StatelessWidget {
               onPressed: () {
                 context.pop();
               },
-              child: const Text('Go back to Screen A'),
+              child: const Text('Go back'),
             ),
           ],
         ),
@@ -99,7 +99,7 @@ class ScreenD extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Screen C')),
+      appBar: AppBar(title: const Text('Screen D')),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -113,7 +113,7 @@ class ScreenD extends StatelessWidget {
               onPressed: () {
                 context.push(
                   '/e',
-                  extra: User(userId: 1, userName: 'John Doe'),
+                  extra: User(userId: 1, userName: 'John Doe').toJson(),
                 );
               },
               child: const Text('Go to Screen E'),
@@ -147,11 +147,16 @@ class User {
   }
 }
 
-class ScreenE extends StatelessWidget {
-  final User user;
+class ScreenE extends StatefulWidget {
+  final User? user;
 
   const ScreenE({super.key, required this.user});
 
+  @override
+  State<ScreenE> createState() => _ScreenEState();
+}
+
+class _ScreenEState extends State<ScreenE> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,8 +164,8 @@ class ScreenE extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            Text("Name: ${user.userName}"),
-            Text("Id: ${user.userId}"),
+            Text("Name: ${widget.user?.userName ?? "Undefined"}"),
+            Text("Id: ${widget.user?.userId ?? "Undefined"}"),
             ElevatedButton(
               onPressed: () {
                 context.pop();
